@@ -1,0 +1,652 @@
+{
+  "source": "https://www.marvelrivals.com/heroes/teamup.html",
+  "cdnBase": "https://www.marvelrivals.com/pc/gw/20241128194803/",
+  "extractedAt": "2026-07-12",
+  "note": "La página oficial no publica descripciones de los team-ups, solo nombres e imágenes. partners[].portrait = héroe aliado, partners[].skillIcon = ícono de la habilidad team-up.",
+  "teamups": [
+    {
+      "id": 1,
+      "enName": "Jubilation Lee",
+      "enNameFull": "Jubilation Lee",
+      "cnName": "李千欢",
+      "cnNameFull": "李千欢",
+      "cnTeamName": "李千欢",
+      "images": {
+        "list": "p1_3e8f92c8.png",
+        "listActive": "p1-active_4dd1b4af.png",
+        "detailBig": "p1_3e8f92c8.png"
+      },
+      "partners": [
+        {
+          "portrait": "header1-1_1f19dbd6.png",
+          "skillIcon": "icon1-1_0626d14c.png"
+        },
+        {
+          "portrait": "header1-2_e445aa3a.png",
+          "skillIcon": "icon1-2_61de7989.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "enName": "CYCLOPS",
+      "enNameFull": "SCOTT SUMMERS",
+      "cnName": "雷光眼",
+      "cnNameFull": "斯科特·萨默斯",
+      "cnTeamName": "雷光眼",
+      "images": {
+        "list": "p2_f78c27ce.png",
+        "listActive": "p2-active_69e592ff.png",
+        "detailBig": "p2_f78c27ce.png"
+      },
+      "partners": [
+        {
+          "portrait": "header2-1_10368a8c.png",
+          "skillIcon": "icon2-1_25862ff5.png"
+        },
+        {
+          "portrait": "header2-2_b78a993f.png",
+          "skillIcon": "icon2-2_a8711cc6.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "enName": "DEVIL DINOSAUR",
+      "enNameFull": "DEVIL DINOSAUR",
+      "cnName": "恶魔恐龙",
+      "cnNameFull": "恶魔恐龙",
+      "cnTeamName": "恶魔恐龙",
+      "images": {
+        "list": "p3_2ff174a2.png",
+        "listActive": "p3-active_37e66bd6.png",
+        "detailBig": "p3_2ff174a2.png"
+      },
+      "partners": [
+        {
+          "portrait": "header3-1_4ed00e60.png",
+          "skillIcon": "icon3-1_be05fbb0.png"
+        },
+        {
+          "portrait": "header3-2_f35a61ec.png",
+          "skillIcon": "icon3-2_d8f8256e.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "enName": "BLACK CAT",
+      "enNameFull": "FELICIA HARDY",
+      "cnName": "黑猫",
+      "cnNameFull": "菲丽西亚·哈代",
+      "cnTeamName": "黑猫",
+      "images": {
+        "list": "p4_f5212219.png",
+        "listActive": "p4-active_b88838a6.png",
+        "detailBig": "p4_f5212219.png"
+      },
+      "partners": [
+        {
+          "portrait": "header4-1_97122a0a.png",
+          "skillIcon": "icon4-1_daf31348.png"
+        },
+        {
+          "portrait": "header4-2_0dd4f773.png",
+          "skillIcon": "icon4-2_134ae6de.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "enName": "THE THING",
+      "enNameFull": "BEN GRIMM",
+      "cnName": "石头人",
+      "cnNameFull": "本杰明·格瑞姆",
+      "cnTeamName": "石头人",
+      "images": {
+        "list": "p5_c202d04d.png",
+        "listActive": "p5-active_941d7584.png",
+        "detailBig": "p5_c202d04d.png"
+      },
+      "partners": [
+        {
+          "portrait": "header5-1_edaaf04d.png",
+          "skillIcon": "icon5-1_9a3ce3c5.png"
+        },
+        {
+          "portrait": "header5-2_44a0c8bf.png",
+          "skillIcon": "icon5-2_7c312771.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "enName": "MISTER FANTASTIC",
+      "enNameFull": "REED RICHARDS",
+      "cnName": "神奇先生",
+      "cnNameFull": "里德·理查兹",
+      "cnTeamName": "神奇先生",
+      "images": {
+        "list": "p6_051a3b88.png",
+        "listActive": "p6-active_0391d337.png",
+        "detailBig": "p6_051a3b88.png"
+      },
+      "partners": [
+        {
+          "portrait": "header6-1_a5f87c0d.png",
+          "skillIcon": "icon6-1_9a161845.png"
+        },
+        {
+          "portrait": "header6-2_2dbd46ec.png",
+          "skillIcon": "icon6-2_f704b296.png"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "enName": "INVISIBLE WOMAN",
+      "enNameFull": "SUSAN STORM",
+      "cnName": "隐形女",
+      "cnNameFull": "苏姗·斯托姆",
+      "cnTeamName": "隐型女",
+      "images": {
+        "list": "p7_21dc85fc.png",
+        "listActive": "p7-active_ee56e7bd.png",
+        "detailBig": "p7_21dc85fc.png"
+      },
+      "partners": [
+        {
+          "portrait": "header7-1_edaaf04d.png",
+          "skillIcon": "icon7-1_82f3deb9.png"
+        },
+        {
+          "portrait": "header7-2_7e9f26c5.png",
+          "skillIcon": "icon7-2_989720c7.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "enName": "IRON FIST",
+      "enNameFull": "LIN LIE",
+      "cnName": "铁拳",
+      "cnNameFull": "林烈",
+      "cnTeamName": "铁拳",
+      "images": {
+        "list": "p8_93952a9a.png",
+        "listActive": "p8-active_09b79c18.png",
+        "detailBig": "p8_93952a9a.png"
+      },
+      "partners": [
+        {
+          "portrait": "header8-1_b7cc1612.png",
+          "skillIcon": "icon8-1_e6037c5b.png"
+        },
+        {
+          "portrait": "header8-2_2dbd46ec.png",
+          "skillIcon": "icon8-2_53733d4f.png"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "enName": "WOLVERINE",
+      "enNameFull": "LOGAN",
+      "cnName": "金刚狼",
+      "cnNameFull": "罗根",
+      "cnTeamName": "金刚狼",
+      "images": {
+        "list": "p9_b34752fb.png",
+        "listActive": "p9-active_a10aec41.png",
+        "detailBig": "p9_b34752fb.png"
+      },
+      "partners": [
+        {
+          "portrait": "header9-1_1c4fbc6c.png",
+          "skillIcon": "icon9-1_1c2a4c84.png"
+        },
+        {
+          "portrait": "header9-2_b78a993f.png",
+          "skillIcon": "icon9-2_2a7d29ab.png"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "enName": "PSYLOCKE",
+      "enNameFull": "SAI",
+      "cnName": "灵蝶",
+      "cnNameFull": "钗",
+      "cnTeamName": "灵蝶",
+      "images": {
+        "list": "p10_da00a49c.png",
+        "listActive": "p10-active_1c2b1818.png",
+        "detailBig": "p10_da00a49c.png"
+      },
+      "partners": [
+        {
+          "portrait": "header10-1_dcacaa49.png",
+          "skillIcon": "icon10-1_d5c8496f.png"
+        },
+        {
+          "portrait": "header10-2_42323ecc.png",
+          "skillIcon": "icon10-2_50c68a1c.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "enName": "JEFFTHE LAND SHARK",
+      "enNameFull": "JEFF",
+      "cnName": "陆行鲨杰夫",
+      "cnNameFull": "杰夫",
+      "cnTeamName": "杰夫",
+      "images": {
+        "list": "p11_e48b1c6a.png",
+        "listActive": "p11-active_3250ad09.png",
+        "detailBig": "p11_e48b1c6a.png"
+      },
+      "partners": [
+        {
+          "portrait": "header11-1_09495c7b.png",
+          "skillIcon": "icon11-1_5744fb6a.png"
+        },
+        {
+          "portrait": "header11-2_56057ee5.png",
+          "skillIcon": "icon11-2_9c1b4685.png"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "enName": "ADAM WARLOCK",
+      "enNameFull": "ADAM WARLOCK",
+      "cnName": "亚当术士",
+      "cnNameFull": "亚当术士",
+      "cnTeamName": "亚当术士",
+      "images": {
+        "list": "p12_6048bc12.png",
+        "listActive": "p12-active_9530038c.png",
+        "detailBig": "p12_6048bc12.png"
+      },
+      "partners": [
+        {
+          "portrait": "header12-1_37cacb94.png",
+          "skillIcon": "icon12-1_1978bf25.png"
+        },
+        {
+          "portrait": "header12-2_14aef9a5.png",
+          "skillIcon": "icon12-2_c21e1256.png"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "enName": "NAMOR",
+      "enNameFull": "NAMOR MCKENZIE",
+      "cnName": "纳摩",
+      "cnNameFull": "纳摩·麦肯齐",
+      "cnTeamName": "纳摩",
+      "images": {
+        "list": "p13_e28fe5c1.png",
+        "listActive": "p13-active_8862d868.png",
+        "detailBig": "p13_e28fe5c1.png"
+      },
+      "partners": [
+        {
+          "portrait": "header13-1_f4ea6744.png",
+          "skillIcon": "icon13-1_b23042fe.png"
+        },
+        {
+          "portrait": "header13-2_1d96d437.png",
+          "skillIcon": "icon13-2_8bfd339d.png"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "enName": "STAR-LORD",
+      "enNameFull": "PETER QUILL",
+      "cnName": "星爵",
+      "cnNameFull": "彼得·奎尔",
+      "cnTeamName": "星爵",
+      "images": {
+        "list": "p14_f18d1ad5.png",
+        "listActive": "p14-active_a8b94808.png",
+        "detailBig": "p14_f18d1ad5.png"
+      },
+      "partners": [
+        {
+          "portrait": "header14-1_7aca31a7.png",
+          "skillIcon": "icon14-1_939f3643.png"
+        },
+        {
+          "portrait": "header14-2_27dcf60a.png",
+          "skillIcon": "icon14-2_3b3b1eb1.png"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "enName": "PENI PARKER",
+      "enNameFull": "PENI PARKER",
+      "cnName": "潘妮·帕克",
+      "cnNameFull": "潘妮·帕克",
+      "cnTeamName": "潘妮帕克",
+      "images": {
+        "list": "p15_443fe216.png",
+        "listActive": "p15-active_bffb32b2.png",
+        "detailBig": "p15_443fe216.png"
+      },
+      "partners": [
+        {
+          "portrait": "header15-1_97122a0a.png",
+          "skillIcon": "icon15-1_6805d4cf.png"
+        },
+        {
+          "portrait": "header15-2_a5f87c0d.png",
+          "skillIcon": "icon15-2_588cb4a1.png"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "enName": "WINTER SOLDIER",
+      "enNameFull": "JAMES BUCHANAN \"BUCKY\" BARNES",
+      "cnName": "冬兵",
+      "cnNameFull": "巴基·巴恩斯",
+      "cnTeamName": "冬兵",
+      "images": {
+        "list": "p16_cce7f7d3.png",
+        "listActive": "p16-active_9b40385a.png",
+        "detailBig": "p16_cce7f7d3.png"
+      },
+      "partners": [
+        {
+          "portrait": "header16-1_7329d95f.png",
+          "skillIcon": "icon16-1_5191ee5f.png"
+        },
+        {
+          "portrait": "header16-2_b2290821.png",
+          "skillIcon": "icon16-2_b8fc623b.png"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "enName": "BLACK PANTHER",
+      "enNameFull": "T'CHALLA",
+      "cnName": "黑豹",
+      "cnNameFull": "特查拉",
+      "cnTeamName": "黑豹",
+      "images": {
+        "list": "p17_cc417504.png",
+        "listActive": "p17-active_424d998e.png",
+        "detailBig": "p17_cc417504.png"
+      },
+      "partners": [
+        {
+          "portrait": "header17-1_14aef9a5.png",
+          "skillIcon": "icon17-1_b11ae33e.png"
+        },
+        {
+          "portrait": "header17-2_fefb3d73.png",
+          "skillIcon": "icon17-2_d01169fd.png"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "enName": "CLOAK&DAGGER",
+      "enNameFull": "TYRONE JOHNSON AND TANDY BOWEN",
+      "cnName": "斗篷与匕首",
+      "cnNameFull": "斗篷与匕首",
+      "cnTeamName": "斗篷匕首",
+      "images": {
+        "list": "p18_05794a74.png",
+        "listActive": "p18-active_072d20ec.png",
+        "detailBig": "p18_05794a74.png"
+      },
+      "partners": [
+        {
+          "portrait": "header18-1_f4ea6744.png",
+          "skillIcon": "icon18-1_a3ede8d7.png"
+        },
+        {
+          "portrait": "header18-2_e445aa3a.png",
+          "skillIcon": "icon18-2_88063707.png"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "enName": "HELA",
+      "enNameFull": "HELA",
+      "cnName": "海拉",
+      "cnNameFull": "海拉",
+      "cnTeamName": "海拉",
+      "images": {
+        "list": "p19_1a77e75a.png",
+        "listActive": "p19-active_66b1f5dc.png",
+        "detailBig": "p19_1a77e75a.png"
+      },
+      "partners": [
+        {
+          "portrait": "header19-1_2c08bcee.png",
+          "skillIcon": "icon19-1_45b5ba27.png"
+        },
+        {
+          "portrait": "header19-2_fe10c507.png",
+          "skillIcon": "icon19-2_1573dbd3.png"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "enName": "ROCKET RACCOON",
+      "enNameFull": "ROCKET RACCOON",
+      "cnName": "火箭浣熊",
+      "cnNameFull": "火箭浣熊",
+      "cnTeamName": "火箭浣熊",
+      "images": {
+        "list": "p20_129398da.png",
+        "listActive": "p20-active_6630c6a2.png",
+        "detailBig": "p20_129398da.png"
+      },
+      "partners": [
+        {
+          "portrait": "header20-1_7aca31a7.png",
+          "skillIcon": "icon20-1_eb14f441.png"
+        },
+        {
+          "portrait": "header20-2_ad7e838c.png",
+          "skillIcon": "icon20-2_61d337f2.png"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "enName": "CAPTAIN AMERICA",
+      "enNameFull": "STEVEN “STEVE” ROGERS",
+      "cnName": "美国队长",
+      "cnNameFull": "史蒂夫·罗杰斯",
+      "cnTeamName": "美国队长",
+      "images": {
+        "list": "p21_54a12dab.png",
+        "listActive": "p21-active_cc62940c.png",
+        "detailBig": "p21_54a12dab.png"
+      },
+      "partners": [
+        {
+          "portrait": "header21-1_60f555f6.png",
+          "skillIcon": "icon21-1_b529cde1.png"
+        },
+        {
+          "portrait": "header21-2_08f182c0.png",
+          "skillIcon": "icon21-2_34394d44.png"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "enName": "HAWKEYE",
+      "enNameFull": "CLINT BARTON",
+      "cnName": "鹰眼",
+      "cnNameFull": "克林特·巴顿",
+      "cnTeamName": "鹰眼",
+      "images": {
+        "list": "p22_20b0bd74.png",
+        "listActive": "p22-active_b891dbf3.png",
+        "detailBig": "p22_20b0bd74.png"
+      },
+      "partners": [
+        {
+          "portrait": "header22-1_42323ecc.png",
+          "skillIcon": "icon22-1_2e0ed513.png"
+        },
+        {
+          "portrait": "header22-2_a3adb55c.png",
+          "skillIcon": "icon22-2_de303fa4.png"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "enName": "MANTIS",
+      "enNameFull": "MANTIS",
+      "cnName": "曼蒂斯",
+      "cnNameFull": "曼蒂斯",
+      "cnTeamName": "曼蒂斯",
+      "images": {
+        "list": "p23_ee6e92e7.png",
+        "listActive": "p23-active_2128200f.png",
+        "detailBig": "p23_ee6e92e7.png"
+      },
+      "partners": [
+        {
+          "portrait": "header23-1_27dcf60a.png",
+          "skillIcon": "icon23-1_2f89e179.png"
+        },
+        {
+          "portrait": "header23-2_d6dbbbd1.png",
+          "skillIcon": "icon23-2_aa937b49.png"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "enName": "DOCTOR STRANGE",
+      "enNameFull": "STEPHEN STRANGE",
+      "cnName": "奇异博士",
+      "cnNameFull": "史蒂芬·斯特兰奇",
+      "cnTeamName": "奇异博士",
+      "images": {
+        "list": "p24_57e334fa.png",
+        "listActive": "p24-active_f717797b.png",
+        "detailBig": "p24_57e334fa.png"
+      },
+      "partners": [
+        {
+          "portrait": "header24-1_1d96d437.png",
+          "skillIcon": "icon24-1_4437daf9.png"
+        },
+        {
+          "portrait": "header24-2_976e1510.png",
+          "skillIcon": "icon24-2_834373c3.png"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "enName": "LOKI",
+      "enNameFull": "LOKI LAUFEYSON",
+      "cnName": "洛基",
+      "cnNameFull": "洛基·劳菲森",
+      "cnTeamName": "洛基",
+      "images": {
+        "list": "p25_8aeee59b.png",
+        "listActive": "p25-active_002b4bfe.png",
+        "detailBig": "p25_8aeee59b.png"
+      },
+      "partners": [
+        {
+          "portrait": "header25-1_99cd4153.png",
+          "skillIcon": "icon25-1_5238e0f4.png"
+        },
+        {
+          "portrait": "header25-2_b0aae10a.png",
+          "skillIcon": "icon25-2_bca1cbb3.png"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "enName": "STORM",
+      "enNameFull": "ORORO MUNROE",
+      "cnName": "暴风女",
+      "cnNameFull": "欧萝洛·梦露",
+      "cnTeamName": "暴风女",
+      "images": {
+        "list": "p26_8e990637.png",
+        "listActive": "p26-active_33578e17.png",
+        "detailBig": "p26_8e990637.png"
+      },
+      "partners": [
+        {
+          "portrait": "header26-1_7afc4623.png",
+          "skillIcon": "icon26-1_80e726c3.png"
+        },
+        {
+          "portrait": "header26-2_f22a9f19.png",
+          "skillIcon": "icon26-2_655b9645.png"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "enName": "THE PUNISHER",
+      "enNameFull": "FRANK CASTLE",
+      "cnName": "惩罚者",
+      "cnNameFull": "弗兰克·卡斯特",
+      "cnTeamName": "惩罚者",
+      "images": {
+        "list": "p27_ba67a031.png",
+        "listActive": "p27-active_fa499fc8.png",
+        "detailBig": "p27_ba67a031.png"
+      },
+      "partners": [
+        {
+          "portrait": "header27-1_e55dbb93.png",
+          "skillIcon": "icon27-1_fbdd2876.png"
+        },
+        {
+          "portrait": "header27-2_5b64a4ba.png",
+          "skillIcon": "icon27-2_efba143b.png"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "enName": "HULK",
+      "enNameFull": "BRUCE BANNER",
+      "cnName": "浩克",
+      "cnNameFull": "布鲁斯·班纳",
+      "cnTeamName": "浩克",
+      "images": {
+        "list": "p28_38791594.png",
+        "listActive": "p28-active_7517b592.png",
+        "detailBig": "p28_38791594.png"
+      },
+      "partners": [
+        {
+          "portrait": "header28-1_8ac2e8da.png",
+          "skillIcon": "icon28-1_ebb3dcf5.png"
+        },
+        {
+          "portrait": "header28-2_053684db.png",
+          "skillIcon": "icon28-2_6ade1fa7.png"
+        }
+      ]
+    }
+  ]
+}
