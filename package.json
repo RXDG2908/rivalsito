@@ -1,13 +1,18 @@
 {
-  "name": "marvel-rivals-drafter",
+  "name": "rivalsito",
   "private": true,
   "version": "0.1.0",
+  "description": "Sorteo táctico de héroes y roles para Marvel Rivals",
+  "author": "Renzuky Apps",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "app": "vite build && electron .",
+    "dist:exe": "vite build && electron-builder --win portable"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",
@@ -21,8 +26,30 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.0.0",
     "typescript": "~5.7.2",
     "vite": "^6.0.0"
+  },
+  "build": {
+    "appId": "com.renzuky.rivalsito",
+    "productName": "Rivalsito",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "build/icon.png"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.png"
+    },
+    "portable": {
+      "artifactName": "Rivalsito.exe"
+    }
   }
 }

@@ -45,62 +45,62 @@ interface PlayerAssignment {
 
 const HEROES: Hero[] = [
   // Vanguards (Tanks)
-  { id: 'angela', name: 'Angela', role: 'Vanguard', color: 'bg-blue-600', image: '/Angela_Hero_Logo.webp' },
-  { id: 'banner', name: 'Hulk', role: 'Vanguard', color: 'bg-blue-600', image: '/Hulk_Hero_Logo.webp' },
-  { id: 'cap', name: 'Captain America', role: 'Vanguard', color: 'bg-blue-600', image: '/Captain_America_Hero_Logo.webp' },
-  { id: 'strange', name: 'Doctor Strange', role: 'Vanguard', color: 'bg-blue-600', image: '/Doctor_Strange_Hero_Logo.webp' },
-  { id: 'emma', name: 'Emma Frost', role: 'Vanguard', color: 'bg-blue-600', image: '/Emma_Frost_Hero_Logo.webp' },
-  { id: 'groot', name: 'Groot', role: 'Vanguard', color: 'bg-blue-600', image: '/Groot_Hero_Logo.webp' },
-  { id: 'magneto', name: 'Magneto', role: 'Vanguard', color: 'bg-blue-600', image: '/Magneto_Hero_Logo.webp' },
-  { id: 'peni', name: 'Peni Parker', role: 'Vanguard', color: 'bg-blue-600', image: '/Peni_Parker_Hero_Logo.webp' },
-  { id: 'rogue', name: 'Rogue', role: 'Vanguard', color: 'bg-blue-600', image: '/Rogue_COS_LOGO.webp' },
-  { id: 'devildino', name: 'Devil Dinosaur', role: 'Vanguard', color: 'bg-blue-600', image: '/Devil_Dinosaur_Hero_Logo.png' },
-  { id: 'thing', name: 'The Thing', role: 'Vanguard', color: 'bg-blue-600', image: '/The_Thing_Hero_Logo.webp' },
-  { id: 'thor', name: 'Thor', role: 'Vanguard', color: 'bg-blue-600', image: '/Thor_Hero_Logo.webp' },
-  { id: 'venom', name: 'Venom', role: 'Vanguard', color: 'bg-blue-600', image: '/Venom_Hero_Logo.webp' },
+  { id: 'angela', name: 'Angela', role: 'Vanguard', color: 'bg-blue-600', image: './Angela_Hero_Logo.png' },
+  { id: 'banner', name: 'Hulk', role: 'Vanguard', color: 'bg-blue-600', image: './Hulk_Hero_Logo.png' },
+  { id: 'cap', name: 'Captain America', role: 'Vanguard', color: 'bg-blue-600', image: './Captain_America_Hero_Logo.png' },
+  { id: 'strange', name: 'Doctor Strange', role: 'Vanguard', color: 'bg-blue-600', image: './Doctor_Strange_Hero_Logo.png' },
+  { id: 'emma', name: 'Emma Frost', role: 'Vanguard', color: 'bg-blue-600', image: './Emma_Frost_Hero_Logo.png' },
+  { id: 'groot', name: 'Groot', role: 'Vanguard', color: 'bg-blue-600', image: './Groot_Hero_Logo.png' },
+  { id: 'magneto', name: 'Magneto', role: 'Vanguard', color: 'bg-blue-600', image: './Magneto_Hero_Logo.png' },
+  { id: 'peni', name: 'Peni Parker', role: 'Vanguard', color: 'bg-blue-600', image: './Peni_Parker_Hero_Logo.png' },
+  { id: 'rogue', name: 'Rogue', role: 'Vanguard', color: 'bg-blue-600', image: './Rogue_COS_LOGO.png' },
+  { id: 'devildino', name: 'Devil Dinosaur', role: 'Vanguard', color: 'bg-blue-600', image: './Devil_Dinosaur_Hero_Logo.png' },
+  { id: 'thing', name: 'The Thing', role: 'Vanguard', color: 'bg-blue-600', image: './The_Thing_Hero_Logo.png' },
+  { id: 'thor', name: 'Thor', role: 'Vanguard', color: 'bg-blue-600', image: './Thor_Hero_Logo.png' },
+  { id: 'venom', name: 'Venom', role: 'Vanguard', color: 'bg-blue-600', image: './Venom_Hero_Logo.png' },
   
   // Duelists (DPS)
-  { id: 'panther', name: 'Black Panther', role: 'Duelist', color: 'bg-red-600', image: '/Black_Panther_Hero_Logo.webp' },
-  { id: 'widow', name: 'Black Widow', role: 'Duelist', color: 'bg-red-600', image: '/Black_Widow_Hero_Logo.webp' },
-  { id: 'blackcat', name: 'Black Cat', role: 'Duelist', color: 'bg-red-600', image: '/Black_Cat_Hero_Logo.webp' },
-  { id: 'blade', name: 'Blade', role: 'Duelist', color: 'bg-red-600', image: '/Blade_Hero_Logo.webp' },
-  { id: 'cyclops', name: 'Cyclops', role: 'Duelist', color: 'bg-red-600', image: '/Cyclops_Hero_Logo.png' },
-  { id: 'daredevil', name: 'Daredevil', role: 'Duelist', color: 'bg-red-600', image: '/Daredevil_Hero_Logo.webp' },
-  { id: 'deadpool', name: 'Deadpool', role: 'Duelist', roles: ['Vanguard', 'Duelist', 'Strategist'], color: 'bg-red-600', image: '/Deadpool_Hero_Logo.webp' },
-  { id: 'elsa', name: 'Elsa Bloodstone', role: 'Duelist', color: 'bg-red-600', image: '/Elsa_Bloodstone_Hero_Logo.webp' },
-  { id: 'hawkeye', name: 'Hawkeye', role: 'Duelist', color: 'bg-red-600', image: '/Hawkeye_Hero_Logo.webp' },
-  { id: 'hela', name: 'Hela', role: 'Duelist', color: 'bg-red-600', image: '/Hela_Hero_Logo.webp' },
-  { id: 'humantorch', name: 'Human Torch', role: 'Duelist', color: 'bg-red-600', image: '/Human_Torch_Hero_Logo.webp' },
-  { id: 'ironfist', name: 'Iron Fist', role: 'Duelist', color: 'bg-red-600', image: '/Iron_Fist_Hero_Logo.webp' },
-  { id: 'ironman', name: 'Iron Man', role: 'Duelist', color: 'bg-red-600', image: '/Iron_Man_Hero_Logo.webp' },
-  { id: 'magik', name: 'Magik', role: 'Duelist', color: 'bg-red-600', image: '/Magik_Hero_Logo.webp' },
-  { id: 'mrfantastic', name: 'Mister Fantastic', role: 'Duelist', color: 'bg-red-600', image: '/Mister_Fantastic_Hero_Logo.webp' },
-  { id: 'moonknight', name: 'Moon Knight', role: 'Duelist', color: 'bg-red-600', image: '/Moon_Knight_Hero_Logo.webp' },
-  { id: 'namor', name: 'Namor', role: 'Duelist', color: 'bg-red-600', image: '/Namor_Hero_Logo.webp' },
-  { id: 'phoenix', name: 'Phoenix', role: 'Duelist', color: 'bg-red-600', image: '/Phoenix_Hero_Logo.webp' },
-  { id: 'psylocke', name: 'Psylocke', role: 'Duelist', color: 'bg-red-600', image: '/Psylocke_Hero_Logo.webp' },
-  { id: 'scarlet', name: 'Scarlet Witch', role: 'Duelist', color: 'bg-red-600', image: '/Scarlet_Witch_Hero_Logo.webp' },
-  { id: 'spiderman', name: 'Spider-Man', role: 'Duelist', color: 'bg-red-600', image: '/Spider-Man_Hero_Logo.webp' },
-  { id: 'squirrelgirl', name: 'Squirrel Girl', role: 'Duelist', color: 'bg-red-600', image: '/Squirrel_Girl_Hero_Logo.webp' },
-  { id: 'starlord', name: 'Star-Lord', role: 'Duelist', color: 'bg-red-600', image: '/Star-Lord_Hero_Logo.webp' },
-  { id: 'storm', name: 'Storm', role: 'Duelist', color: 'bg-red-600', image: '/Storm_Hero_Logo.webp' },
-  { id: 'punisher', name: 'The Punisher', role: 'Duelist', color: 'bg-red-600', image: '/The_Punisher_Hero_Logo.webp' },
-  { id: 'winter-soldier', name: 'Winter Soldier', role: 'Duelist', color: 'bg-red-600', image: '/Winter_Soldier_Hero_Logo.webp' },
-  { id: 'wolverine', name: 'Wolverine', role: 'Duelist', color: 'bg-red-600', image: '/Wolverine_Hero_Logo.webp' },
+  { id: 'panther', name: 'Black Panther', role: 'Duelist', color: 'bg-red-600', image: './Black_Panther_Hero_Logo.png' },
+  { id: 'widow', name: 'Black Widow', role: 'Duelist', color: 'bg-red-600', image: './Black_Widow_Hero_Logo.png' },
+  { id: 'blackcat', name: 'Black Cat', role: 'Duelist', color: 'bg-red-600', image: './Black_Cat_Hero_Logo.png' },
+  { id: 'blade', name: 'Blade', role: 'Duelist', color: 'bg-red-600', image: './Blade_Hero_Logo.png' },
+  { id: 'cyclops', name: 'Cyclops', role: 'Duelist', color: 'bg-red-600', image: './Cyclops_Hero_Logo.png' },
+  { id: 'daredevil', name: 'Daredevil', role: 'Duelist', color: 'bg-red-600', image: './Daredevil_Hero_Logo.png' },
+  { id: 'deadpool', name: 'Deadpool', role: 'Duelist', roles: ['Vanguard', 'Duelist', 'Strategist'], color: 'bg-red-600', image: './Deadpool_Hero_Logo.png' },
+  { id: 'elsa', name: 'Elsa Bloodstone', role: 'Duelist', color: 'bg-red-600', image: './Elsa_Bloodstone_Hero_Logo.png' },
+  { id: 'hawkeye', name: 'Hawkeye', role: 'Duelist', color: 'bg-red-600', image: './Hawkeye_Hero_Logo.png' },
+  { id: 'hela', name: 'Hela', role: 'Duelist', color: 'bg-red-600', image: './Hela_Hero_Logo.png' },
+  { id: 'humantorch', name: 'Human Torch', role: 'Duelist', color: 'bg-red-600', image: './Human_Torch_Hero_Logo.png' },
+  { id: 'ironfist', name: 'Iron Fist', role: 'Duelist', color: 'bg-red-600', image: './Iron_Fist_Hero_Logo.png' },
+  { id: 'ironman', name: 'Iron Man', role: 'Duelist', color: 'bg-red-600', image: './Iron_Man_Hero_Logo.png' },
+  { id: 'magik', name: 'Magik', role: 'Duelist', color: 'bg-red-600', image: './Magik_Hero_Logo.png' },
+  { id: 'mrfantastic', name: 'Mister Fantastic', role: 'Duelist', color: 'bg-red-600', image: './Mister_Fantastic_Hero_Logo.png' },
+  { id: 'moonknight', name: 'Moon Knight', role: 'Duelist', color: 'bg-red-600', image: './Moon_Knight_Hero_Logo.png' },
+  { id: 'namor', name: 'Namor', role: 'Duelist', color: 'bg-red-600', image: './Namor_Hero_Logo.png' },
+  { id: 'phoenix', name: 'Phoenix', role: 'Duelist', color: 'bg-red-600', image: './Phoenix_Hero_Logo.png' },
+  { id: 'psylocke', name: 'Psylocke', role: 'Duelist', color: 'bg-red-600', image: './Psylocke_Hero_Logo.png' },
+  { id: 'scarlet', name: 'Scarlet Witch', role: 'Duelist', color: 'bg-red-600', image: './Scarlet_Witch_Hero_Logo.png' },
+  { id: 'spiderman', name: 'Spider-Man', role: 'Duelist', color: 'bg-red-600', image: './Spider-Man_Hero_Logo.png' },
+  { id: 'squirrelgirl', name: 'Squirrel Girl', role: 'Duelist', color: 'bg-red-600', image: './Squirrel_Girl_Hero_Logo.png' },
+  { id: 'starlord', name: 'Star-Lord', role: 'Duelist', color: 'bg-red-600', image: './Star-Lord_Hero_Logo.png' },
+  { id: 'storm', name: 'Storm', role: 'Duelist', color: 'bg-red-600', image: './Storm_Hero_Logo.png' },
+  { id: 'punisher', name: 'The Punisher', role: 'Duelist', color: 'bg-red-600', image: './The_Punisher_Hero_Logo.png' },
+  { id: 'winter-soldier', name: 'Winter Soldier', role: 'Duelist', color: 'bg-red-600', image: './Winter_Soldier_Hero_Logo.png' },
+  { id: 'wolverine', name: 'Wolverine', role: 'Duelist', color: 'bg-red-600', image: './Wolverine_Hero_Logo.png' },
 
   // Strategists (Support)
-  { id: 'mantis', name: 'Mantis', role: 'Strategist', color: 'bg-green-600', image: '/Mantis_Hero_Logo.webp' },
-  { id: 'rocket', name: 'Rocket Raccoon', role: 'Strategist', color: 'bg-green-600', image: '/Rocket_Raccoon_Hero_Logo.webp' },
-  { id: 'luna', name: 'Luna Snow', role: 'Strategist', color: 'bg-green-600', image: '/Luna_Snow_Hero_Logo.webp' },
-  { id: 'warlock', name: 'Adam Warlock', role: 'Strategist', color: 'bg-green-600', image: '/Adam_Warlock_Hero_Logo.webp' },
-  { id: 'loki', name: 'Loki', role: 'Strategist', color: 'bg-green-600', image: '/Loki_Hero_Logo.webp' },
-  { id: 'jeff', name: 'Jeff the Land Shark', role: 'Strategist', color: 'bg-green-600', image: '/Jeff_the_Land_Shark_Hero_Logo.webp' },
-  { id: 'invisible', name: 'Invisible Woman', role: 'Strategist', color: 'bg-green-600', image: '/Invisible_Woman_Hero_Logo.webp' },
-  { id: 'cloakdagger', name: 'Cloak & Dagger', role: 'Strategist', color: 'bg-green-600', image: '/Cloak_%26_Dagger_Hero_Logo.webp' },
-  { id: 'gambito', name: 'Gambit', role: 'Strategist', color: 'bg-green-600', image: '/Gambit_Hero_Logo.webp' },
-  { id: 'jubilee', name: 'Jubilee', role: 'Strategist', color: 'bg-green-600', image: '/Jubilee_Hero_Logo.png' },
-  { id: 'ultron', name: 'Ultron', role: 'Strategist', color: 'bg-green-600', image: '/Ultron_Hero_Logo.webp' },
-  { id: 'whitefox', name: 'White Fox', role: 'Strategist', color: 'bg-green-600', image: '/White_Fox_Hero_Logo.webp' },
+  { id: 'mantis', name: 'Mantis', role: 'Strategist', color: 'bg-green-600', image: './Mantis_Hero_Logo.png' },
+  { id: 'rocket', name: 'Rocket Raccoon', role: 'Strategist', color: 'bg-green-600', image: './Rocket_Raccoon_Hero_Logo.png' },
+  { id: 'luna', name: 'Luna Snow', role: 'Strategist', color: 'bg-green-600', image: './Luna_Snow_Hero_Logo.png' },
+  { id: 'warlock', name: 'Adam Warlock', role: 'Strategist', color: 'bg-green-600', image: './Adam_Warlock_Hero_Logo.png' },
+  { id: 'loki', name: 'Loki', role: 'Strategist', color: 'bg-green-600', image: './Loki_Hero_Logo.png' },
+  { id: 'jeff', name: 'Jeff the Land Shark', role: 'Strategist', color: 'bg-green-600', image: './Jeff_the_Land_Shark_Hero_Logo.png' },
+  { id: 'invisible', name: 'Invisible Woman', role: 'Strategist', color: 'bg-green-600', image: './Invisible_Woman_Hero_Logo.png' },
+  { id: 'cloakdagger', name: 'Cloak & Dagger', role: 'Strategist', color: 'bg-green-600', image: './Cloak_and_Dagger_Hero_Logo.png' },
+  { id: 'gambito', name: 'Gambit', role: 'Strategist', color: 'bg-green-600', image: './Gambit_Hero_Logo.png' },
+  { id: 'jubilee', name: 'Jubilee', role: 'Strategist', color: 'bg-green-600', image: './Jubilee_Hero_Logo.png' },
+  { id: 'ultron', name: 'Ultron', role: 'Strategist', color: 'bg-green-600', image: './Ultron_Hero_Logo.png' },
+  { id: 'whitefox', name: 'White Fox', role: 'Strategist', color: 'bg-green-600', image: './White_Fox_Hero_Logo.png' },
 ];
 
 const DEFAULT_NAMES = ['Renzuky', 'JOEL_XITS', 'Gideon', 'CHETITO', 'CIVY', 'JOSHI'];
@@ -343,9 +343,9 @@ const RoleIcon = ({ role, className = "", size = 30 }: { role: Role, className?:
 
   const getIconPath = () => {
     switch (role) {
-      case 'Vanguard': return '/roles/Vanguard_Icon.webp';
-      case 'Duelist': return '/roles/Duelist_Icon.webp';
-      case 'Strategist': return '/roles/Strategist_Icon.webp';
+      case 'Vanguard': return './roles/Vanguard_Icon.png';
+      case 'Duelist': return './roles/Duelist_Icon.png';
+      case 'Strategist': return './roles/Strategist_Icon.png';
     }
   };
 
@@ -879,7 +879,7 @@ export default function App() {
         {/* Background Image */}
         <div className="fixed inset-0 z-0">
           <img 
-            src={theme === 'dark' ? '/FondoYmas/FondoOscuro.png' : '/FondoYmas/FondoClaro.jfif'} 
+            src={theme === 'dark' ? './FondoYmas/FondoOscuro.png' : './FondoYmas/FondoClaro.jfif'} 
             alt="Background" 
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"
@@ -911,7 +911,7 @@ export default function App() {
             className="mb-8"
           >
             <img 
-              src="/FondoYmas/LOGOMARVELRIVALS.png" 
+              src="./FondoYmas/LOGOMARVELRIVALS.png" 
               alt="Marvel Rivals Logo" 
               className="h-32 md:h-48 mx-auto object-contain drop-shadow-[0_0_30px_rgba(220,38,38,0.3)]"
               referrerPolicy="no-referrer"
@@ -1122,7 +1122,7 @@ export default function App() {
         <footer className="mt-24 text-center relative z-10">
           <div className="flex flex-col items-center gap-6">
             <img 
-              src="/FondoYmas/MarcasDesarrolladoras.png" 
+              src="./FondoYmas/MarcasDesarrolladoras.png" 
               alt="Developer Brands" 
               className={`h-12 md:h-16 object-contain opacity-60 hover:opacity-100 transition-opacity ${theme === 'light' ? 'invert' : ''}`}
               referrerPolicy="no-referrer"
@@ -1141,7 +1141,7 @@ export default function App() {
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <img 
-          src={theme === 'dark' ? '/FondoYmas/FondoOscuro.png' : '/FondoYmas/FondoClaro.jfif'} 
+          src={theme === 'dark' ? './FondoYmas/FondoOscuro.png' : './FondoYmas/FondoClaro.jfif'} 
           alt="Background" 
           className="w-full h-full object-cover opacity-30"
           referrerPolicy="no-referrer"
@@ -1174,7 +1174,7 @@ export default function App() {
             className="mb-2"
           >
             <img 
-              src="/FondoYmas/LOGOMARVELRIVALS.png" 
+              src="./FondoYmas/LOGOMARVELRIVALS.png" 
               alt="Marvel Rivals Logo" 
               className="h-16 md:h-20 mx-auto object-contain drop-shadow-[0_0_20px_rgba(220,38,38,0.2)]"
               referrerPolicy="no-referrer"
@@ -1758,7 +1758,7 @@ export default function App() {
       <footer className="py-12 text-center border-t border-white/5 mt-24 relative z-10">
         <div className="flex flex-col items-center gap-6">
           <img 
-            src="/FondoYmas/MarcasDesarrolladoras.png" 
+            src="./FondoYmas/MarcasDesarrolladoras.png" 
             alt="Developer Brands" 
             className={`h-12 md:h-16 object-contain opacity-60 hover:opacity-100 transition-opacity ${theme === 'light' ? 'invert' : ''}`}
             referrerPolicy="no-referrer"
