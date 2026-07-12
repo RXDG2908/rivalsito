@@ -10,511 +10,22 @@ import {
   PlusCircle,
   RotateCcw,
   Play,
-  User,
   Trophy,
   Sparkles,
   ClipboardPaste,
-  GripVertical,
   Trash2,
   Sun,
-  Moon
+  Moon,
+  X
 } from 'lucide-react';
 
-// --- Types ---
-
-type Role = 'Vanguard' | 'Duelist' | 'Strategist';
-
-interface Hero {
-  id: string;
-  name: string;
-  role: Role; // Primary role
-  roles?: Role[]; // All possible roles
-  color: string;
-  image?: string;
-}
-
-interface PlayerAssignment {
-  playerName: string;
-  hero?: Hero;
-  assignedRole?: Role;
-  team?: 1 | 2;
-  isShuffleOnly?: boolean;
-}
-
-// --- Data ---
-
-const HEROES: Hero[] = [
-  // Vanguards (Tanks)
-  { id: 'angela', name: 'Angela', role: 'Vanguard', color: 'bg-blue-600', image: './Angela_Hero_Logo.png' },
-  { id: 'banner', name: 'Hulk', role: 'Vanguard', color: 'bg-blue-600', image: './Hulk_Hero_Logo.png' },
-  { id: 'cap', name: 'Captain America', role: 'Vanguard', color: 'bg-blue-600', image: './Captain_America_Hero_Logo.png' },
-  { id: 'strange', name: 'Doctor Strange', role: 'Vanguard', color: 'bg-blue-600', image: './Doctor_Strange_Hero_Logo.png' },
-  { id: 'emma', name: 'Emma Frost', role: 'Vanguard', color: 'bg-blue-600', image: './Emma_Frost_Hero_Logo.png' },
-  { id: 'groot', name: 'Groot', role: 'Vanguard', color: 'bg-blue-600', image: './Groot_Hero_Logo.png' },
-  { id: 'magneto', name: 'Magneto', role: 'Vanguard', color: 'bg-blue-600', image: './Magneto_Hero_Logo.png' },
-  { id: 'peni', name: 'Peni Parker', role: 'Vanguard', color: 'bg-blue-600', image: './Peni_Parker_Hero_Logo.png' },
-  { id: 'rogue', name: 'Rogue', role: 'Vanguard', color: 'bg-blue-600', image: './Rogue_COS_LOGO.png' },
-  { id: 'devildino', name: 'Devil Dinosaur', role: 'Vanguard', color: 'bg-blue-600', image: './Devil_Dinosaur_Hero_Logo.png' },
-  { id: 'thing', name: 'The Thing', role: 'Vanguard', color: 'bg-blue-600', image: './The_Thing_Hero_Logo.png' },
-  { id: 'thor', name: 'Thor', role: 'Vanguard', color: 'bg-blue-600', image: './Thor_Hero_Logo.png' },
-  { id: 'venom', name: 'Venom', role: 'Vanguard', color: 'bg-blue-600', image: './Venom_Hero_Logo.png' },
-  
-  // Duelists (DPS)
-  { id: 'panther', name: 'Black Panther', role: 'Duelist', color: 'bg-red-600', image: './Black_Panther_Hero_Logo.png' },
-  { id: 'widow', name: 'Black Widow', role: 'Duelist', color: 'bg-red-600', image: './Black_Widow_Hero_Logo.png' },
-  { id: 'blackcat', name: 'Black Cat', role: 'Duelist', color: 'bg-red-600', image: './Black_Cat_Hero_Logo.png' },
-  { id: 'blade', name: 'Blade', role: 'Duelist', color: 'bg-red-600', image: './Blade_Hero_Logo.png' },
-  { id: 'cyclops', name: 'Cyclops', role: 'Duelist', color: 'bg-red-600', image: './Cyclops_Hero_Logo.png' },
-  { id: 'daredevil', name: 'Daredevil', role: 'Duelist', color: 'bg-red-600', image: './Daredevil_Hero_Logo.png' },
-  { id: 'deadpool', name: 'Deadpool', role: 'Duelist', roles: ['Vanguard', 'Duelist', 'Strategist'], color: 'bg-red-600', image: './Deadpool_Hero_Logo.png' },
-  { id: 'elsa', name: 'Elsa Bloodstone', role: 'Duelist', color: 'bg-red-600', image: './Elsa_Bloodstone_Hero_Logo.png' },
-  { id: 'hawkeye', name: 'Hawkeye', role: 'Duelist', color: 'bg-red-600', image: './Hawkeye_Hero_Logo.png' },
-  { id: 'hela', name: 'Hela', role: 'Duelist', color: 'bg-red-600', image: './Hela_Hero_Logo.png' },
-  { id: 'humantorch', name: 'Human Torch', role: 'Duelist', color: 'bg-red-600', image: './Human_Torch_Hero_Logo.png' },
-  { id: 'ironfist', name: 'Iron Fist', role: 'Duelist', color: 'bg-red-600', image: './Iron_Fist_Hero_Logo.png' },
-  { id: 'ironman', name: 'Iron Man', role: 'Duelist', color: 'bg-red-600', image: './Iron_Man_Hero_Logo.png' },
-  { id: 'magik', name: 'Magik', role: 'Duelist', color: 'bg-red-600', image: './Magik_Hero_Logo.png' },
-  { id: 'mrfantastic', name: 'Mister Fantastic', role: 'Duelist', color: 'bg-red-600', image: './Mister_Fantastic_Hero_Logo.png' },
-  { id: 'moonknight', name: 'Moon Knight', role: 'Duelist', color: 'bg-red-600', image: './Moon_Knight_Hero_Logo.png' },
-  { id: 'namor', name: 'Namor', role: 'Duelist', color: 'bg-red-600', image: './Namor_Hero_Logo.png' },
-  { id: 'phoenix', name: 'Phoenix', role: 'Duelist', color: 'bg-red-600', image: './Phoenix_Hero_Logo.png' },
-  { id: 'psylocke', name: 'Psylocke', role: 'Duelist', color: 'bg-red-600', image: './Psylocke_Hero_Logo.png' },
-  { id: 'scarlet', name: 'Scarlet Witch', role: 'Duelist', color: 'bg-red-600', image: './Scarlet_Witch_Hero_Logo.png' },
-  { id: 'spiderman', name: 'Spider-Man', role: 'Duelist', color: 'bg-red-600', image: './Spider-Man_Hero_Logo.png' },
-  { id: 'squirrelgirl', name: 'Squirrel Girl', role: 'Duelist', color: 'bg-red-600', image: './Squirrel_Girl_Hero_Logo.png' },
-  { id: 'starlord', name: 'Star-Lord', role: 'Duelist', color: 'bg-red-600', image: './Star-Lord_Hero_Logo.png' },
-  { id: 'storm', name: 'Storm', role: 'Duelist', color: 'bg-red-600', image: './Storm_Hero_Logo.png' },
-  { id: 'punisher', name: 'The Punisher', role: 'Duelist', color: 'bg-red-600', image: './The_Punisher_Hero_Logo.png' },
-  { id: 'winter-soldier', name: 'Winter Soldier', role: 'Duelist', color: 'bg-red-600', image: './Winter_Soldier_Hero_Logo.png' },
-  { id: 'wolverine', name: 'Wolverine', role: 'Duelist', color: 'bg-red-600', image: './Wolverine_Hero_Logo.png' },
-
-  // Strategists (Support)
-  { id: 'mantis', name: 'Mantis', role: 'Strategist', color: 'bg-green-600', image: './Mantis_Hero_Logo.png' },
-  { id: 'rocket', name: 'Rocket Raccoon', role: 'Strategist', color: 'bg-green-600', image: './Rocket_Raccoon_Hero_Logo.png' },
-  { id: 'luna', name: 'Luna Snow', role: 'Strategist', color: 'bg-green-600', image: './Luna_Snow_Hero_Logo.png' },
-  { id: 'warlock', name: 'Adam Warlock', role: 'Strategist', color: 'bg-green-600', image: './Adam_Warlock_Hero_Logo.png' },
-  { id: 'loki', name: 'Loki', role: 'Strategist', color: 'bg-green-600', image: './Loki_Hero_Logo.png' },
-  { id: 'jeff', name: 'Jeff the Land Shark', role: 'Strategist', color: 'bg-green-600', image: './Jeff_the_Land_Shark_Hero_Logo.png' },
-  { id: 'invisible', name: 'Invisible Woman', role: 'Strategist', color: 'bg-green-600', image: './Invisible_Woman_Hero_Logo.png' },
-  { id: 'cloakdagger', name: 'Cloak & Dagger', role: 'Strategist', color: 'bg-green-600', image: './Cloak_and_Dagger_Hero_Logo.png' },
-  { id: 'gambito', name: 'Gambit', role: 'Strategist', color: 'bg-green-600', image: './Gambit_Hero_Logo.png' },
-  { id: 'jubilee', name: 'Jubilee', role: 'Strategist', color: 'bg-green-600', image: './Jubilee_Hero_Logo.png' },
-  { id: 'ultron', name: 'Ultron', role: 'Strategist', color: 'bg-green-600', image: './Ultron_Hero_Logo.png' },
-  { id: 'whitefox', name: 'White Fox', role: 'Strategist', color: 'bg-green-600', image: './White_Fox_Hero_Logo.png' },
-];
-
-const DEFAULT_NAMES: string[] = [];
-
-const RECENT_PLAYERS: string[] = [];
-
-// --- Components ---
-
-// --- Utils ---
-
-let sharedAudioCtx: AudioContext | null = null;
-
-const playRevealSound = () => {
-  try {
-    if (!sharedAudioCtx) {
-      sharedAudioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    }
-    const audioCtx = sharedAudioCtx;
-    if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
-    const oscillator = audioCtx.createOscillator();
-    const gainNode = audioCtx.createGain();
-
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
-    oscillator.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.1); // A4
-
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-
-    oscillator.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.3);
-  } catch (e) {
-    console.error('Audio error:', e);
-  }
-};
-
-const getRoleColor = (role: Role) => {
-  switch (role) {
-    case 'Vanguard': return 'bg-blue-600';
-    case 'Duelist': return 'bg-red-600';
-    case 'Strategist': return 'bg-green-600';
-  }
-};
-
-const HeroRevealCard: React.FC<{ 
-  assignment: PlayerAssignment; 
-  allHeroes: Hero[];
-  index: number;
-  hidePlayerName?: boolean;
-  isSuspense?: boolean;
-}> = ({ 
-  assignment, 
-  allHeroes,
-  index,
-  hidePlayerName = false,
-  isSuspense = false
-}) => {
-  const [displayHero, setDisplayHero] = useState<Hero | null>(null);
-  const [isCycling, setIsCycling] = useState(true);
-  const [imageError, setImageError] = useState(false);
-
-  useEffect(() => {
-    setImageError(false);
-  }, [displayHero]);
-
-  useEffect(() => {
-    if (!assignment) return;
-
-    if (assignment.isShuffleOnly) {
-      setIsCycling(false);
-      playRevealSound();
-      return;
-    }
-
-    const roleHeroes = allHeroes.filter(h => (h.roles || [h.role]).includes(assignment.assignedRole!));
-    if (roleHeroes.length === 0) {
-      setDisplayHero(assignment.hero || null);
-      setIsCycling(false);
-      return;
-    }
-
-    let cycleCount = 0;
-    const baseCycles = isSuspense ? 24 : 15;
-    const maxCycles = baseCycles + Math.floor(Math.random() * (isSuspense ? 6 : 10));
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    let cancelled = false;
-
-    const runCycle = () => {
-      if (cancelled) return;
-      if (cycleCount < maxCycles) {
-        const randomHero = roleHeroes[Math.floor(Math.random() * roleHeroes.length)];
-        setDisplayHero(randomHero);
-        cycleCount++;
-
-        const baseDelay = 60;
-        const slowFactor = isSuspense ? 6 : 5;
-        const delay = baseDelay + (cycleCount * slowFactor);
-
-        timeoutId = setTimeout(runCycle, delay);
-      } else {
-        setDisplayHero(assignment.hero || null);
-        setIsCycling(false);
-        playRevealSound();
-      }
-    };
-
-    runCycle();
-
-    return () => {
-      cancelled = true;
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [assignment, allHeroes, isSuspense]);
-
-  if (!assignment.isShuffleOnly && !displayHero) return null;
-
-  const teamColor = assignment.team === 1 ? 'bg-red-600' : 'bg-blue-600';
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 50 }}
-      animate={{ 
-        opacity: 1, 
-        scale: isCycling ? (isSuspense ? [1.05, 1.1, 1.05] : 1.05) : 1, 
-        y: 0 
-      }}
-      transition={{ 
-        type: 'spring', 
-        damping: 15,
-        scale: isCycling && isSuspense ? { repeat: Infinity, duration: 0.4 } : { type: 'spring', damping: 15 }
-      }}
-      className="relative group"
-    >
-      <div className={`absolute -inset-1 rounded-2xl blur-lg opacity-20 transition-colors duration-500 ${assignment.assignedRole ? getRoleColor(assignment.assignedRole) : teamColor}`} />
-      <div className="relative bg-[#151515] border border-white/10 rounded-xl overflow-hidden shadow-2xl h-[220px] flex flex-col">
-        {/* Role Visual */}
-        <div className={`h-28 relative overflow-hidden shrink-0 flex items-center justify-center transition-colors duration-500 ${assignment.assignedRole ? getRoleColor(assignment.assignedRole) : teamColor} bg-opacity-20`}>
-          {assignment.isShuffleOnly ? (
-            <div className="flex flex-col items-center gap-2">
-              {assignment.assignedRole ? (
-                <RoleIcon role={assignment.assignedRole} size={72} className="drop-shadow-lg opacity-40" />
-              ) : (
-                <Users size={64} className="opacity-40" />
-              )}
-              <span className="text-[10px] font-black uppercase tracking-widest opacity-60">Equipo {assignment.team}</span>
-            </div>
-          ) : (
-            <>
-              {displayHero?.image && !imageError ? (
-                <motion.img 
-                  key={displayHero.id}
-                  initial={isCycling ? { opacity: 0.5, scale: 0.9 } : { opacity: 0.6 }}
-                  animate={{ opacity: isCycling ? 0.8 : 1, scale: isCycling ? 0.9 : 1.2 }}
-                  src={displayHero.image} 
-                  alt={displayHero.name}
-                  className="absolute inset-0 w-full h-full object-contain p-1.5 transition-opacity duration-500"
-                  referrerPolicy="no-referrer"
-                  onError={() => setImageError(true)}
-                />
-              ) : (
-                <div className="flex flex-col items-center gap-1">
-                  <RoleIcon role={assignment.assignedRole!} size={72} className="drop-shadow-lg opacity-40" />
-                </div>
-              )}
-              
-              {/* Role Badge */}
-              <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1">
-                <RoleIcon role={assignment.assignedRole!} size={12} />
-                <span className="text-[7px] font-black uppercase tracking-widest">{assignment.assignedRole}</span>
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="p-3 flex flex-col justify-between flex-grow">
-          {!hidePlayerName && (
-            <div>
-              <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 mb-0.5">Jugador</p>
-              <h3 className={`text-sm font-black italic uppercase truncate ${assignment.team === 1 ? 'text-red-500' : 'text-blue-500'}`}>
-                {assignment.playerName}
-              </h3>
-            </div>
-          )}
-          
-          <div className="flex items-end justify-between mt-auto">
-            {!assignment.isShuffleOnly ? (
-              <>
-                <div className="min-w-0 flex-1 mr-2">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 mb-0.5">Héroe</p>
-                  <AnimatePresence mode="wait">
-                    <motion.h4 
-                      key={displayHero?.id}
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      transition={{ duration: 0.1 }}
-                      className={`text-base font-black uppercase tracking-tighter truncate ${isCycling ? 'text-white/40' : 'text-white'}`}
-                    >
-                      {displayHero?.name}
-                    </motion.h4>
-                  </AnimatePresence>
-                </div>
-                <div className={`w-8 h-8 rounded-lg transition-colors duration-500 ${getRoleColor(assignment.assignedRole!)} flex items-center justify-center shadow-lg shrink-0`}>
-                  <RoleIcon role={assignment.assignedRole!} className="text-white" size={24} />
-                </div>
-              </>
-            ) : (
-              <div className="w-full flex justify-between items-center">
-                <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 mb-0.5">Asignación</p>
-                  <h4 className="text-xs font-black uppercase tracking-widest text-white">Equipo {assignment.team}</h4>
-                </div>
-                <div className={`w-8 h-8 rounded-lg ${assignment.assignedRole ? getRoleColor(assignment.assignedRole) : teamColor} flex items-center justify-center shadow-lg transition-colors duration-500`}>
-                  {assignment.assignedRole ? (
-                    <RoleIcon role={assignment.assignedRole} size={24} className="text-white" />
-                  ) : (
-                    <Users size={16} className="text-white" />
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-const RoleIcon = ({ role, className = "", size = 30 }: { role: Role, className?: string, size?: number }) => {
-  const [error, setError] = useState(false);
-
-  const getIconPath = () => {
-    switch (role) {
-      case 'Vanguard': return './roles/Vanguard_Icon.png';
-      case 'Duelist': return './roles/Duelist_Icon.png';
-      case 'Strategist': return './roles/Strategist_Icon.png';
-    }
-  };
-
-  if (error) {
-    return (
-      <div 
-        style={{ width: size, height: size }}
-        className={`rounded-full ${role === 'Vanguard' ? 'bg-blue-600' : role === 'Duelist' ? 'bg-red-600' : 'bg-green-600'} ${className}`}
-      />
-    );
-  }
-
-  return (
-    <img 
-      src={getIconPath()} 
-      alt={role}
-      style={{ width: size, height: size }}
-      className={`object-contain ${className}`}
-      referrerPolicy="no-referrer"
-      onError={() => setError(true)}
-    />
-  );
-};
-
-interface Player {
-  id: string;
-  name: string;
-  role: Role | null;
-}
-
-const PlayerSlot: React.FC<{
-  player: Player;
-  idx: number;
-  displayNumber: number;
-  accent: 'red' | 'blue';
-  showRoleButtons: boolean;
-  isDragOver: boolean;
-  setDragOverIndex: (i: number | null) => void;
-  onNameChange: (idx: number, value: string) => void;
-  onRoleChange: (idx: number, role: Role) => void;
-  trashRef: React.RefObject<HTMLDivElement | null>;
-  containerRef: React.RefObject<HTMLDivElement | null>;
-}> = ({
-  player,
-  idx,
-  displayNumber,
-  accent,
-  showRoleButtons,
-  isDragOver,
-  setDragOverIndex,
-  onNameChange,
-  onRoleChange,
-  trashRef,
-  containerRef
-}) => {
-  const role = player.role;
-  const roleBg = role === 'Vanguard' ? 'bg-blue-500/5 border-blue-500/20' : role === 'Duelist' ? 'bg-red-500/5 border-red-500/20' : role === 'Strategist' ? 'bg-green-500/5 border-green-500/20' : 'bg-white/5 border-white/5';
-  const glow = accent === 'red' ? 'from-red-600/10 to-red-600/5' : 'from-blue-600/10 to-blue-600/5';
-
-  return (
-    <Reorder.Item
-      value={player}
-      dragConstraints={containerRef}
-      dragElastic={0}
-      dragMomentum={false}
-      whileDrag={{
-        scale: 1.05,
-        zIndex: 100,
-        cursor: 'grabbing',
-        boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.7)"
-      }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      className="group relative"
-      onDragOver={(e) => {
-        e.preventDefault();
-        setDragOverIndex(idx);
-      }}
-      onDragLeave={() => setDragOverIndex(null)}
-      onDrop={(e) => {
-        e.preventDefault();
-        setDragOverIndex(null);
-        const droppedName = e.dataTransfer.getData('playerName');
-        const sourceIdx = e.dataTransfer.getData('sourceIdx');
-        if (droppedName) {
-          if (sourceIdx && sourceIdx !== 'recent') {
-            onNameChange(parseInt(sourceIdx), '');
-          }
-          onNameChange(idx, droppedName);
-        }
-      }}
-      onDragEnd={(_, info) => {
-        if (trashRef.current) {
-          const trashRect = trashRef.current.getBoundingClientRect();
-          const { x, y } = info.point;
-          if (
-            x >= trashRect.left &&
-            x <= trashRect.right &&
-            y >= trashRect.top &&
-            y <= trashRect.bottom
-          ) {
-            onNameChange(idx, '');
-          }
-        }
-      }}
-    >
-      <div className={`absolute -inset-0.5 bg-gradient-to-r ${glow} rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500`} />
-      <div
-        draggable={!!player.name}
-        onDragStart={(e) => {
-          e.dataTransfer.setData('playerName', player.name);
-          e.dataTransfer.setData('sourceIdx', idx.toString());
-        }}
-        className={`relative ${roleBg} border ${isDragOver ? 'border-white bg-white/10' : 'border-white/5'} rounded-xl p-3 flex flex-col gap-3 transition-all duration-300 group-hover:border-white/10 shadow-lg`}
-      >
-        <div className="flex items-center gap-3">
-          <div className="cursor-grab active:cursor-grabbing opacity-20 hover:opacity-60 transition-opacity p-1">
-            <GripVertical size={16} />
-          </div>
-
-          <div className={`w-8 h-8 rounded-lg flex items-center justify-center border border-white/5 shrink-0 ${role === 'Vanguard' ? 'bg-blue-600/20 text-blue-500' : role === 'Duelist' ? 'bg-red-600/20 text-red-500' : role === 'Strategist' ? 'bg-green-600/20 text-green-500' : 'bg-white/5 text-white/20'}`}>
-            <span className="text-[10px] font-black">{displayNumber}</span>
-          </div>
-
-          <div className="flex-1 min-w-0 flex items-center gap-3">
-            <div className="shrink-0">
-              {role ? (
-                <RoleIcon role={role} size={20} className="opacity-60" />
-              ) : (
-                <div className="w-5 h-5 rounded-full border border-white/10 flex items-center justify-center opacity-20">
-                  <User size={10} />
-                </div>
-              )}
-            </div>
-            <input
-              type="text"
-              value={player.name}
-              onChange={(e) => onNameChange(idx, e.target.value)}
-              placeholder="Nombre..."
-              className="w-full bg-transparent border-none p-0 text-base font-bold placeholder:text-white/5 focus:ring-0 focus:outline-none truncate"
-            />
-          </div>
-
-          {player.name && (
-            <button
-              onClick={() => onNameChange(idx, '')}
-              className="opacity-0 group-hover:opacity-40 hover:!opacity-100 transition-opacity p-2 hover:text-red-500"
-            >
-              <Trash2 size={14} />
-            </button>
-          )}
-        </div>
-
-        {/* Role Selection Buttons */}
-        {showRoleButtons && (
-          <div className="flex items-center gap-1 pl-11">
-            {(['Vanguard', 'Duelist', 'Strategist'] as Role[]).map((r) => (
-              <button
-                key={r}
-                onClick={() => onRoleChange(idx, r)}
-                className={`px-2 py-1 rounded-md text-[8px] font-black uppercase tracking-tighter transition-all border ${
-                  role === r
-                    ? r === 'Vanguard' ? 'bg-blue-500/20 border-blue-500/40 text-blue-400' : r === 'Duelist' ? 'bg-red-500/20 border-red-500/40 text-red-400' : 'bg-green-500/20 border-green-500/40 text-green-400'
-                    : 'bg-white/5 border-white/5 text-white/20 hover:bg-white/10 hover:text-white/40'
-                }`}
-              >
-                {r}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-    </Reorder.Item>
-  );
-};
+import type { Role, Player, PlayerAssignment, Hero } from './types';
+import { HEROES } from './data/heroes';
+import { getRoleColor } from './utils/roles';
+import { loadRecentPlayers, addRecentPlayers, removeRecentPlayer } from './utils/recentPlayers';
+import { RoleIcon } from './components/RoleIcon';
+import { HeroRevealCard } from './components/HeroRevealCard';
+import { PlayerSlot } from './components/PlayerSlot';
 
 export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -540,6 +51,7 @@ export default function App() {
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
   const [isOverTrash, setIsOverTrash] = useState(false);
   const [pasteTeamTarget, setPasteTeamTarget] = useState<1 | 2 | 'both' | undefined>(undefined);
+  const [recentPlayers, setRecentPlayers] = useState<string[]>(() => loadRecentPlayers());
   const trashRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -604,7 +116,7 @@ export default function App() {
       const initialPlayers = Array(playerCount).fill(null).map((_, i) => {
         return {
           id: `player-${i}-${Math.random()}`,
-          name: DEFAULT_NAMES[i] || '',
+          name: '',
           role: null
         };
       });
@@ -660,6 +172,11 @@ export default function App() {
     if (useNames && !(mode === 'party' && partyMode === 'allSame') && players.some(p => p.name.trim() === '')) {
       showToast(`Por favor ingresa los nombres de los ${playerCount} jugadores.`);
       return;
+    }
+
+    // Guardar los nombres usados en la lista de recientes (persistente por equipo/PC)
+    if (useNames && !(mode === 'party' && partyMode === 'allSame')) {
+      setRecentPlayers(prev => addRecentPlayers(prev, players.map(p => p.name)));
     }
 
     const newAssignments: PlayerAssignment[] = [];
@@ -874,7 +391,7 @@ export default function App() {
         {/* Background Image */}
         <div className="fixed inset-0 z-0">
           <img 
-            src={theme === 'dark' ? './FondoYmas/FondoOscuro.png' : './FondoYmas/FondoClaro.jfif'} 
+            src={theme === 'dark' ? './branding/FondoOscuro.png' : './branding/FondoClaro.jfif'} 
             alt="Background" 
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"
@@ -906,7 +423,7 @@ export default function App() {
             className="mb-8"
           >
             <img 
-              src="./FondoYmas/LOGOMARVELRIVALS.png" 
+              src="./branding/LOGOMARVELRIVALS.png" 
               alt="Marvel Rivals Logo" 
               className="h-32 md:h-48 mx-auto object-contain drop-shadow-[0_0_30px_rgba(220,38,38,0.3)]"
               referrerPolicy="no-referrer"
@@ -1117,7 +634,7 @@ export default function App() {
         <footer className="mt-24 text-center relative z-10">
           <div className="flex flex-col items-center gap-6">
             <img 
-              src="./FondoYmas/MarcasDesarrolladoras.png" 
+              src="./branding/MarcasDesarrolladoras.png" 
               alt="Developer Brands" 
               className={`h-12 md:h-16 object-contain opacity-60 hover:opacity-100 transition-opacity ${theme === 'light' ? 'invert' : ''}`}
               referrerPolicy="no-referrer"
@@ -1136,7 +653,7 @@ export default function App() {
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <img 
-          src={theme === 'dark' ? './FondoYmas/FondoOscuro.png' : './FondoYmas/FondoClaro.jfif'} 
+          src={theme === 'dark' ? './branding/FondoOscuro.png' : './branding/FondoClaro.jfif'} 
           alt="Background" 
           className="w-full h-full object-cover opacity-30"
           referrerPolicy="no-referrer"
@@ -1169,7 +686,7 @@ export default function App() {
             className="mb-2"
           >
             <img 
-              src="./FondoYmas/LOGOMARVELRIVALS.png" 
+              src="./branding/LOGOMARVELRIVALS.png" 
               alt="Marvel Rivals Logo" 
               className="h-16 md:h-20 mx-auto object-contain drop-shadow-[0_0_20px_rgba(220,38,38,0.2)]"
               referrerPolicy="no-referrer"
@@ -1311,18 +828,18 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
             >
-            {/* Recent Players Panel */}
-            {[...DEFAULT_NAMES, ...RECENT_PLAYERS].length > 0 && (
+            {/* Recent Players Panel (persistente por PC vía localStorage) */}
+            {recentPlayers.length > 0 && (
             <div className="col-span-full mb-4">
               <div className="flex items-center gap-2 mb-3">
                 <Users size={14} className="text-red-500" />
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Jugadores Recientes</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {[...DEFAULT_NAMES, ...RECENT_PLAYERS].map((name) => {
+                {recentPlayers.map((name) => {
                   const isSelected = players.some(p => p.name === name);
                   return (
-                    <button
+                    <div
                       key={name}
                       draggable
                       onDragStart={(e) => {
@@ -1342,14 +859,24 @@ export default function App() {
                           }
                         }
                       }}
-                      className={`px-3 py-1.5 rounded-lg border transition-all text-[10px] font-bold uppercase tracking-wider ${
-                        isSelected 
-                          ? 'bg-red-600/20 border-red-500/50 text-white shadow-[0_0_10px_rgba(220,38,38,0.2)]' 
+                      className={`group/chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border cursor-pointer select-none transition-all text-[10px] font-bold uppercase tracking-wider ${
+                        isSelected
+                          ? 'bg-red-600/20 border-red-500/50 text-white shadow-[0_0_10px_rgba(220,38,38,0.2)]'
                           : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:border-white/20 hover:text-white'
                       }`}
                     >
                       {name}
-                    </button>
+                      <button
+                        title="Olvidar este jugador"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setRecentPlayers(prev => removeRecentPlayer(prev, name));
+                        }}
+                        className="opacity-0 group-hover/chip:opacity-50 hover:!opacity-100 hover:text-red-500 transition-opacity"
+                      >
+                        <X size={11} />
+                      </button>
+                    </div>
                   );
                 })}
               </div>
@@ -1623,7 +1150,6 @@ export default function App() {
                             key={`${assignment.playerName}-${idx}`}
                             assignment={assignment}
                             allHeroes={HEROES}
-                            index={idx}
                           />
                         ))}
                       </AnimatePresence>
@@ -1644,7 +1170,6 @@ export default function App() {
                             key={`${assignment.playerName}-${idx}`}
                             assignment={assignment}
                             allHeroes={HEROES}
-                            index={idx}
                           />
                         ))}
                       </AnimatePresence>
@@ -1662,7 +1187,6 @@ export default function App() {
                           key="all-same-hero"
                           assignment={assignments[0]}
                           allHeroes={HEROES}
-                          index={0}
                           hidePlayerName={true}
                           isSuspense={true}
                         />
@@ -1687,7 +1211,6 @@ export default function App() {
                         key={`${assignment.playerName}-${idx}`}
                         assignment={assignment}
                         allHeroes={HEROES}
-                        index={idx}
                       />
                     ))}
                   </AnimatePresence>
@@ -1755,7 +1278,7 @@ export default function App() {
       <footer className="py-12 text-center border-t border-white/5 mt-24 relative z-10">
         <div className="flex flex-col items-center gap-6">
           <img 
-            src="./FondoYmas/MarcasDesarrolladoras.png" 
+            src="./branding/MarcasDesarrolladoras.png" 
             alt="Developer Brands" 
             className={`h-12 md:h-16 object-contain opacity-60 hover:opacity-100 transition-opacity ${theme === 'light' ? 'invert' : ''}`}
             referrerPolicy="no-referrer"
