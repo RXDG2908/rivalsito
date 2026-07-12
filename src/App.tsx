@@ -103,14 +103,9 @@ const HEROES: Hero[] = [
   { id: 'whitefox', name: 'White Fox', role: 'Strategist', color: 'bg-green-600', image: './White_Fox_Hero_Logo.png' },
 ];
 
-const DEFAULT_NAMES = ['Renzuky', 'JOEL_XITS', 'Gideon', 'CHETITO', 'CIVY', 'JOSHI'];
+const DEFAULT_NAMES: string[] = [];
 
-const RECENT_PLAYERS = [
-  '!!!Max.2btw', 'Abi_cast06', 'λPHONEZY', 'Damian Phosnyx', 
-  'Electro3203D', 'ExtssyMoodel', 'ILYA ROZANOV81', 'Okasito', 
-  'Solariz', '✦ Secretary Venus', '❖Restles❖', '🎮 ⚔️ 🛡️ Uli',
-  'JOEHasTROLL', 'Myth Lie1', 'Brian m°esr', 'JOHN WICK 999'
-];
+const RECENT_PLAYERS: string[] = [];
 
 // --- Components ---
 
@@ -1317,6 +1312,7 @@ export default function App() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
             >
             {/* Recent Players Panel */}
+            {[...DEFAULT_NAMES, ...RECENT_PLAYERS].length > 0 && (
             <div className="col-span-full mb-4">
               <div className="flex items-center gap-2 mb-3">
                 <Users size={14} className="text-red-500" />
@@ -1358,6 +1354,7 @@ export default function App() {
                 })}
               </div>
             </div>
+            )}
 
             {useNames ? (
               <div className="col-span-full space-y-12" ref={containerRef}>
