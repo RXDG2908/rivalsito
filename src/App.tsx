@@ -19,8 +19,9 @@ import {
   X
 } from 'lucide-react';
 
-import type { Role, Player, PlayerAssignment, Hero } from './types';
+import type { Role, Player, PlayerAssignment, Hero, TeamUp } from './types';
 import { HEROES } from './data/heroes';
+import { TEAMUPS } from './data/teamups';
 import { getRoleColor } from './utils/roles';
 import { loadRecentPlayers, addRecentPlayers, removeRecentPlayer } from './utils/recentPlayers';
 import { RoleIcon } from './components/RoleIcon';
@@ -36,6 +37,7 @@ export default function App() {
   const [isShuffleOnly, setIsShuffleOnly] = useState(false);
   const [playersPerTeam, setPlayersPerTeam] = useState<2 | 4 | 6>(6);
   const [useNames, setUseNames] = useState(true);
+  const [assignTeamUps, setAssignTeamUps] = useState(false);
   const [players, setPlayers] = useState<Player[]>([]);
   const [isDrafting, setIsDrafting] = useState(false);
   const [fullDraftResults, setFullDraftResults] = useState<PlayerAssignment[]>([]);
@@ -168,6 +170,13 @@ export default function App() {
     setPlayers(newPlayers);
   };
 
+  const pickTeamUp = (hero?: Hero): TeamUp | undefined => {
+    if (!assignTeamUps || !hero) return undefined;
+    const options = TEAMUPS[hero.id];
+    if (!options || options.length === 0) return undefined;
+    return options[Math.floor(Math.random() * options.length)];
+  };
+
   const startDraft = () => {
     if (useNames && !(mode === 'party' && partyMode === 'allSame') && players.some(p => p.name.trim() === '')) {
       showToast(`Por favor ingresa los nombres de los ${playerCount} jugadores.`);
@@ -192,7 +201,8 @@ export default function App() {
           playerName: 'Todos',
           hero: selectedHero,
           assignedRole: selectedHero.role,
-          team: undefined
+          team: undefined,
+          teamUp: pickTeamUp(selectedHero)
         });
       } else {
         for (let i = 0; i < playerCount; i++) {
@@ -224,7 +234,8 @@ export default function App() {
             playerName,
             hero,
             assignedRole: role,
-            team
+            team,
+            teamUp: pickTeamUp(hero)
           });
         }
       }
@@ -356,7 +367,8 @@ export default function App() {
         playerName,
         hero: randomHero,
         assignedRole: role || undefined,
-        team
+        team,
+        teamUp: pickTeamUp(randomHero)
       });
     }
 
@@ -722,19 +734,38 @@ export default function App() {
 
           {!isDrafting && (
             <div className="mt-4 flex flex-col items-center gap-4">
-              <div className="bg-white/5 border border-white/10 p-0.5 rounded-xl flex items-center gap-1">
-                <button
-                  onClick={() => setUseNames(true)}
-                  className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${useNames ? 'bg-red-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
-                >
-                  Nombres ON
-                </button>
-                <button
-                  onClick={() => setUseNames(false)}
-                  className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${!useNames ? 'bg-red-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
-                >
-                  Nombres OFF
-                </button>
+              <div className="flex flex-wrap justify-center gap-3">
+                <div className="bg-white/5 border border-white/10 p-0.5 rounded-xl flex items-center gap-1">
+                  <button
+                    onClick={() => setUseNames(true)}
+                    className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${useNames ? 'bg-red-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                  >
+                    Nombres ON
+                  </button>
+                  <button
+                    onClick={() => setUseNames(false)}
+                    className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${!useNames ? 'bg-red-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                  >
+                    Nombres OFF
+                  </button>
+                </div>
+
+                {!isShuffleOnly && (
+                  <div className="bg-white/5 border border-white/10 p-0.5 rounded-xl flex items-center gap-1">
+                    <button
+                      onClick={() => setAssignTeamUps(true)}
+                      className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${assignTeamUps ? 'bg-yellow-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                    >
+                      Team-Ups ON
+                    </button>
+                    <button
+                      onClick={() => setAssignTeamUps(false)}
+                      className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${!assignTeamUps ? 'bg-yellow-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                    >
+                      Team-Ups OFF
+                    </button>
+                  </div>
+                )}
               </div>
 
               {useNames && (
@@ -1250,7 +1281,7 @@ export default function App() {
                         if (a.isShuffleOnly) {
                           return `${a.playerName}: Equipo ${a.team}`;
                         }
-                        return `${a.playerName} Juega como ${a.hero?.name}`;
+                        return `${a.playerName} Juega como ${a.hero?.name}${a.teamUp ? ` [Team-Up: ${a.teamUp.name}]` : ''}`;
                       }).join('\n');
                       navigator.clipboard.writeText(text)
                         .then(() => showToast('Resultados copiados al portapapeles'))
