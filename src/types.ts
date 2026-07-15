@@ -9,11 +9,11 @@ export interface Hero {
   image?: string;
 }
 
-export interface TeamUp {
-  name: string;
-  icon: string;
-  /** Compañero que potencia el team-up (según la ficha oficial) */
-  partner?: string;
+/** Team-up de un héroe: sus compañeros directos + ícono oficial del combo */
+export interface HeroTeamUp {
+  icon: string | null;
+  /** Nombres de los héroes con los que forma team-up */
+  partners: string[];
 }
 
 export interface PlayerAssignment {
@@ -22,7 +22,7 @@ export interface PlayerAssignment {
   assignedRole?: Role;
   team?: 1 | 2;
   isShuffleOnly?: boolean;
-  teamUp?: TeamUp;
+  teamUp?: HeroTeamUp;
 }
 
 export interface Player {

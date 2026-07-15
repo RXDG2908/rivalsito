@@ -1,7 +1,7 @@
 {
   "name": "rivalsito",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sorteo táctico de héroes y roles para Marvel Rivals",
   "author": "Renzuky Apps",
   "type": "module",

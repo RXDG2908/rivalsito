@@ -19,9 +19,9 @@ import {
   X
 } from 'lucide-react';
 
-import type { Role, Player, PlayerAssignment, Hero, TeamUp } from './types';
+import type { Role, Player, PlayerAssignment, Hero, HeroTeamUp } from './types';
 import { HEROES } from './data/heroes';
-import { TEAMUPS } from './data/teamups';
+import { TEAMUPS_BY_HERO } from './data/teamups';
 import { getRoleColor } from './utils/roles';
 import { loadRecentPlayers, addRecentPlayers, removeRecentPlayer } from './utils/recentPlayers';
 import { RoleIcon } from './components/RoleIcon';
@@ -170,11 +170,11 @@ export default function App() {
     setPlayers(newPlayers);
   };
 
-  const pickTeamUp = (hero?: Hero): TeamUp | undefined => {
+  const pickTeamUp = (hero?: Hero): HeroTeamUp | undefined => {
     if (!assignTeamUps || !hero) return undefined;
-    const options = TEAMUPS[hero.id];
-    if (!options || options.length === 0) return undefined;
-    return options[Math.floor(Math.random() * options.length)];
+    const tu = TEAMUPS_BY_HERO[hero.id];
+    if (!tu || tu.partners.length === 0) return undefined;
+    return { icon: tu.icon, partners: tu.partners.slice(0, 3) };
   };
 
   const startDraft = () => {
@@ -1281,7 +1281,7 @@ export default function App() {
                         if (a.isShuffleOnly) {
                           return `${a.playerName}: Equipo ${a.team}`;
                         }
-                        return `${a.playerName} Juega como ${a.hero?.name}${a.teamUp ? ` [Team-Up: ${a.teamUp.name}]` : ''}`;
+                        return `${a.playerName} Juega como ${a.hero?.name}${a.teamUp && a.teamUp.partners.length ? ` [Team-Up con ${a.teamUp.partners.join(', ')}]` : ''}`;
                       }).join('\n');
                       navigator.clipboard.writeText(text)
                         .then(() => showToast('Resultados copiados al portapapeles'))

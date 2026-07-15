@@ -162,29 +162,29 @@ export const HeroRevealCard: React.FC<{
                       {displayHero?.name}
                     </motion.h4>
                   </AnimatePresence>
-                  {assignment.teamUp && !isCycling && (
+                  {assignment.teamUp && assignment.teamUp.partners.length > 0 && !isCycling && (
                     <motion.p
                       initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15 }}
                       className="text-[7px] font-black uppercase tracking-widest text-yellow-500/90 truncate mt-0.5"
                     >
-                      ★ {assignment.teamUp.name}
+                      ★ Team-Up: {assignment.teamUp.partners.join(', ')}
                     </motion.p>
                   )}
                 </div>
                 <div className="flex items-center gap-1.5 shrink-0">
-                  {assignment.teamUp && !isCycling && (
+                  {assignment.teamUp && assignment.teamUp.icon && !isCycling && (
                     <motion.div
                       initial={{ scale: 0, rotate: -30 }}
                       animate={{ scale: 1, rotate: 0 }}
                       transition={{ type: 'spring', damping: 12, delay: 0.15 }}
-                      title={`Team-Up: ${assignment.teamUp.name}${assignment.teamUp.partner ? ` (con ${assignment.teamUp.partner})` : ''}`}
+                      title={`Team-Up con ${assignment.teamUp.partners.join(', ')}`}
                       className="w-8 h-8 rounded-lg bg-yellow-500/15 border border-yellow-500/40 flex items-center justify-center shadow-[0_0_12px_rgba(202,138,4,0.25)]"
                     >
                       <img
                         src={assignment.teamUp.icon}
-                        alt={assignment.teamUp.name}
+                        alt="Team-Up"
                         className="w-6 h-6 object-contain"
                         referrerPolicy="no-referrer"
                       />
