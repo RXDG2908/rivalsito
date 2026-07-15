@@ -5,3 +5,6 @@ coverage/
 .DS_Store
 *.log
 .env*
+
+# Renders full body HD de rivalskins (~500MB): solo local, demasiado grandes para GitHub
+assets/rivalskins/fullbody/
